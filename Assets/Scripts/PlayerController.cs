@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
     public Transform toolIndicator;
     public float toolrange = 3f;
+
+    public CropController.CropType seedCropType;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -172,7 +174,7 @@ public class PlayerController : MonoBehaviour
                         anim.SetTrigger("useWateringCan");
                     break;
                 case Tooltype.seeds:
-                    block.PlantCrop();
+                    block.PlantCrop(seedCropType);
 
                     break;
                 case Tooltype.basket:
