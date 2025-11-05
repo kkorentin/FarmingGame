@@ -68,6 +68,10 @@ public class GridInfo : MonoBehaviour
                     }
                     theGrid[y].blocks[x].isWatered = false;
                 }
+                if (theGrid[y].blocks[x].currentStage == GrowBlock.GrowStage.ploughed)
+                {
+                    theGrid[y].blocks[x].currentStage = GrowBlock.GrowStage.barren;
+                }
             }
         }
     }
