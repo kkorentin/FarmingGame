@@ -50,6 +50,27 @@ public class CropController : MonoBehaviour
             return null;
         }
     }
+
+    public void useSeed(CropType seedToUse)
+    {
+        foreach(CropInfo info in cropList)
+        {
+            if (info.cropType == seedToUse)
+            {
+                info.seedAmount--;
+            }
+        }
+    }
+    public void addCrop(CropType cropToAdd)
+    {
+        foreach (CropInfo info in cropList)
+        {
+            if (info.cropType == cropToAdd)
+            {
+                info.cropAmount++;
+            }
+        }
+    }
 }
 [System.Serializable]
 public class CropInfo
@@ -58,4 +79,7 @@ public class CropInfo
     public Sprite finalCrop,seedType,planted,growStage1,GrowStage2,ripe;
 
     public int seedAmount, cropAmount;
+
+    [Range(0f,100f)]
+    public float growthFailChance;
 }

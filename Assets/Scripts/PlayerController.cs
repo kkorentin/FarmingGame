@@ -174,8 +174,11 @@ public class PlayerController : MonoBehaviour
                         anim.SetTrigger("useWateringCan");
                     break;
                 case Tooltype.seeds:
-                    block.PlantCrop(seedCropType);
-
+                    if(CropController.instance.GetCropInfo(seedCropType).seedAmount > 0)
+                    {
+                        block.PlantCrop(seedCropType);
+                        CropController.instance.useSeed(seedCropType);
+                    }
                     break;
                 case Tooltype.basket:
                     block.HarvestCrop();

@@ -39,6 +39,7 @@ public class GridInfo : MonoBehaviour
         theGrid[yPos].blocks[xPos].isWatered = theBlock.isWatered;
         theGrid[yPos].blocks[xPos].currentStage = theBlock.currentStage;
         theGrid[yPos].blocks[xPos].cropType = theBlock.cropType;
+        theGrid[yPos].blocks[xPos].growFailChance = theBlock.growFailChance;
     }
 
     public void GrowCrop()
@@ -49,19 +50,22 @@ public class GridInfo : MonoBehaviour
             {
                 if (theGrid[y].blocks[x].isWatered==true)
                 {
-                    switch(theGrid[y].blocks[x].currentStage)
+                    float growthFailTest = Random.Range(0f, 100f);
+                    if (growthFailTest > theGrid[y].blocks[x].growFailChance)
                     {
-                        case GrowBlock.GrowStage.planted:
-                            theGrid[y].blocks[x].currentStage = GrowBlock.GrowStage.growing1;
-                            break;
-                        case GrowBlock.GrowStage.growing1:
-                            theGrid[y].blocks[x].currentStage = GrowBlock.GrowStage.growing2;
-                            break;
-                        case GrowBlock.GrowStage.growing2:
-                            theGrid[y].blocks[x].currentStage = GrowBlock.GrowStage.ripe;
-                            break;
+                        switch (theGrid[y].blocks[x].currentStage)
+                        {
+                            case GrowBlock.GrowStage.planted:
+                                theGrid[y].blocks[x].currentStage = GrowBlock.GrowStage.growing1;
+                                break;
+                            case GrowBlock.GrowStage.growing1:
+                                theGrid[y].blocks[x].currentStage = GrowBlock.GrowStage.growing2;
+                                break;
+                            case GrowBlock.GrowStage.growing2:
+                                theGrid[y].blocks[x].currentStage = GrowBlock.GrowStage.ripe;
+                                break;
+                        }
                     }
-
                     theGrid[y].blocks[x].isWatered = false;
                 }
             }
@@ -84,6 +88,7 @@ public class BlockInfo
     public GrowBlock.GrowStage currentStage;
 
     public CropController.CropType cropType;
+    public float growFailChance;
 }
 [System.Serializable]
 public class InfoRow
