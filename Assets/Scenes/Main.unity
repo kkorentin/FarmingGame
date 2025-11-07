@@ -16942,7 +16942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3a6240c1d073646ba6765d2e4d41ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CurrencyController
-  currentMoney: 0
+  currentMoney: 100
 --- !u!4 &983226638
 Transform:
   m_ObjectHideFlags: 0

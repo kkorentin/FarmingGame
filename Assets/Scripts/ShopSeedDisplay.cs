@@ -20,5 +20,16 @@ public class ShopSeedDisplay : MonoBehaviour
 
     public void BuySeed(int amount)
     {
+        CropInfo info = CropController.instance.GetCropInfo(crop);
+
+        if(CurrencyController.instance.CheckMoney(info.seedPrice * amount))
+        {
+          CropController.instance.addSeed(crop,amount);
+
+          CurrencyController.instance.SpendMoney(info.seedPrice * amount);
+
+          UpdateDisplay();
+
+        }
     }
 }
