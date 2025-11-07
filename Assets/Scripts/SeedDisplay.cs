@@ -19,6 +19,10 @@ public class SeedDisplay : MonoBehaviour
 
     public void SelectedSeed()
     {
+       PlayerController.instance.SwitchSeed(crop);
 
+        UIController.instance.SwitchSeed(crop);
+
+        UIController.instance.inventoryController.OpenClose();
     }
 }
