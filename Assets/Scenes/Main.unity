@@ -13190,6 +13190,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &983226636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 983226638}
+  - component: {fileID: 983226637}
+  m_Layer: 0
+  m_Name: Currency Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &983226637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983226636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e3a6240c1d073646ba6765d2e4d41ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CurrencyController
+  currentMoney: 0
+--- !u!4 &983226638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983226636}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 881.37933, y: 573.88965, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &992816730
 GameObject:
   m_ObjectHideFlags: 0
@@ -15149,7 +15194,9 @@ MonoBehaviour:
     ripe: {fileID: -6800931340347744238, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     seedAmount: 5
     cropAmount: 0
-    growthFailChance: 10
+    growthFailChance: 90
+    seedPrice: 1
+    cropPrice: 3
   - cropType: 1
     finalCrop: {fileID: 5508725064705088119, guid: 688a17423db43294093ccb5c6916461b, type: 3}
     seedType: {fileID: 2614870373251885436, guid: 688a17423db43294093ccb5c6916461b, type: 3}
@@ -15159,7 +15206,9 @@ MonoBehaviour:
     ripe: {fileID: -862800679913824809, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     seedAmount: 5
     cropAmount: 0
-    growthFailChance: 20
+    growthFailChance: 80
+    seedPrice: 2
+    cropPrice: 4
   - cropType: 2
     finalCrop: {fileID: -68751727340038015, guid: 688a17423db43294093ccb5c6916461b, type: 3}
     seedType: {fileID: -2693009140137883590, guid: 688a17423db43294093ccb5c6916461b, type: 3}
@@ -15169,7 +15218,9 @@ MonoBehaviour:
     ripe: {fileID: 3390126664149698875, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     seedAmount: 5
     cropAmount: 0
-    growthFailChance: 30
+    growthFailChance: 70
+    seedPrice: 5
+    cropPrice: 8
   - cropType: 3
     finalCrop: {fileID: 6099581493293703690, guid: 688a17423db43294093ccb5c6916461b, type: 3}
     seedType: {fileID: -956252262595852801, guid: 688a17423db43294093ccb5c6916461b, type: 3}
@@ -15179,7 +15230,9 @@ MonoBehaviour:
     ripe: {fileID: -3800458654278106549, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     seedAmount: 5
     cropAmount: 0
-    growthFailChance: 40
+    growthFailChance: 50
+    seedPrice: 7
+    cropPrice: 11
   - cropType: 4
     finalCrop: {fileID: -5428206428529569624, guid: 688a17423db43294093ccb5c6916461b, type: 3}
     seedType: {fileID: 6738218706411903907, guid: 688a17423db43294093ccb5c6916461b, type: 3}
@@ -15189,7 +15242,9 @@ MonoBehaviour:
     ripe: {fileID: 2393381137972445386, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     seedAmount: 5
     cropAmount: 0
-    growthFailChance: 50
+    growthFailChance: 40
+    seedPrice: 10
+    cropPrice: 15
   - cropType: 5
     finalCrop: {fileID: -7833671090200325546, guid: 688a17423db43294093ccb5c6916461b, type: 3}
     seedType: {fileID: -6338023803479276477, guid: 688a17423db43294093ccb5c6916461b, type: 3}
@@ -15199,7 +15254,9 @@ MonoBehaviour:
     ripe: {fileID: 6984442412936397737, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     seedAmount: 5
     cropAmount: 0
-    growthFailChance: 60
+    growthFailChance: 30
+    seedPrice: 13
+    cropPrice: 19
   - cropType: 6
     finalCrop: {fileID: 5860025163644826426, guid: 688a17423db43294093ccb5c6916461b, type: 3}
     seedType: {fileID: 6395214293025444372, guid: 688a17423db43294093ccb5c6916461b, type: 3}
@@ -15209,7 +15266,9 @@ MonoBehaviour:
     ripe: {fileID: 1552293971409657765, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     seedAmount: 5
     cropAmount: 0
-    growthFailChance: 70
+    growthFailChance: 20
+    seedPrice: 14
+    cropPrice: 20
   - cropType: 7
     finalCrop: {fileID: -7583409310137716746, guid: 688a17423db43294093ccb5c6916461b, type: 3}
     seedType: {fileID: -4538752222985096420, guid: 688a17423db43294093ccb5c6916461b, type: 3}
@@ -15219,7 +15278,9 @@ MonoBehaviour:
     ripe: {fileID: 1975525465, guid: b6442a289c143044196d4aeda5e7ba25, type: 3}
     seedAmount: 5
     cropAmount: 0
-    growthFailChance: 80
+    growthFailChance: 10
+    seedPrice: 15
+    cropPrice: 22
 --- !u!4 &1354490202
 Transform:
   m_ObjectHideFlags: 0
@@ -55693,3 +55754,4 @@ SceneRoots:
   - {fileID: 207165328}
   - {fileID: 1975578690}
   - {fileID: 1354490202}
+  - {fileID: 983226638}
