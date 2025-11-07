@@ -2,12 +2,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SeedDisplay : MonoBehaviour
+public class ShopSeedDisplay : MonoBehaviour
 {
     public CropController.CropType crop;
-
     public Image seedImage;
-    public TMP_Text seedAmount;
+    public TMP_Text seedAmount, priceText;
+
 
     public void UpdateDisplay()
     {
@@ -15,14 +15,10 @@ public class SeedDisplay : MonoBehaviour
 
         seedImage.sprite = info.seedType;
         seedAmount.text = "x"+info.seedAmount.ToString();
+        priceText.text = "$"+info.seedPrice.ToString()+" each";
     }
 
-    public void SelectedSeed()
+    public void BuySeed(int amount)
     {
-       PlayerController.instance.SwitchSeed(crop);
-
-        UIController.instance.SwitchSeed(crop);
-
-        UIController.instance.inventoryController.OpenClose();
     }
 }
