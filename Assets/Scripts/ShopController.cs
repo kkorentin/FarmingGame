@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class ShopController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void OpenClose()
     {
+        if(UIController.instance.inventoryController.gameObject.activeSelf == false)
+        {
+            gameObject.SetActive(!gameObject.activeSelf);
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateDisplay()
     {
-        
+      
     }
 }

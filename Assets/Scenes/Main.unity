@@ -2712,8 +2712,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InventoryController, Assembly-CSharp
+      - m_Target: {fileID: 1999052017}
+        m_TargetAssemblyTypeName: ShopController, Assembly-CSharp
         m_MethodName: OpenClose
         m_Mode: 1
         m_Arguments:
@@ -3162,6 +3162,7 @@ MonoBehaviour:
   - {fileID: 2103037263}
   timeText: {fileID: 1289671499}
   inventoryController: {fileID: 2012289238}
+  shopController: {fileID: 1999052017}
   seedImage: {fileID: 2076083097}
 --- !u!1 &451825526
 GameObject:

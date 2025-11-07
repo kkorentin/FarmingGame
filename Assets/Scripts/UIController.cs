@@ -26,6 +26,7 @@ public class UIController : MonoBehaviour
     public TMP_Text timeText;
 
     public InventoryController inventoryController;
+    public ShopController shopController;
 
     public Image seedImage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -40,6 +41,10 @@ public class UIController : MonoBehaviour
         if(Keyboard.current.iKey.wasPressedThisFrame)
         {
             inventoryController.OpenClose();
+        }
+        if(Keyboard.current.bKey.wasPressedThisFrame)
+        {
+            shopController.OpenClose();
         }
     }
 
