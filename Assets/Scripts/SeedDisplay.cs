@@ -14,7 +14,7 @@ public class SeedDisplay : MonoBehaviour
         CropInfo info = CropController.instance.GetCropInfo(crop);
 
         seedImage.sprite = info.seedType;
-        seedAmount.text = info.seedAmount.ToString();
+        seedAmount.text = "x"+info.seedAmount.ToString();
     }
 
     public void SelectedSeed()

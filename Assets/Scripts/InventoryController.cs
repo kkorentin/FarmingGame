@@ -6,16 +6,20 @@ public class InventoryController : MonoBehaviour
     public CropDisplay[] crops;
     public void OpenClose()
     {
-        if(gameObject.activeSelf==false)
+        if(UIController.instance.shopController.gameObject.activeSelf == false)
         {
-            gameObject.SetActive(true);
+            if (gameObject.activeSelf == false)
+            {
+                gameObject.SetActive(true);
 
-            UpdateDisplay();
+                UpdateDisplay();
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
-        else
-        {
-            gameObject.SetActive(false);
-        }
+        
     }
 
     public void UpdateDisplay()
