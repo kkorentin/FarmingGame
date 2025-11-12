@@ -25,9 +25,4 @@ public class ShopController : MonoBehaviour
         }
         
     }
-
-    public void UpdateDisplay()
-    {
-      
-    }
 }
