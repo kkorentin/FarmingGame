@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         {
             if(UIController.instance.inventoryController != null || UIController.instance.shopController != null)
             {
-                if(UIController.instance.inventoryController.gameObject.activeSelf == true)
+                if(UIController.instance.inventoryController.gameObject.activeSelf == true )
                 {
                     theRB.linearVelocity = Vector2.zero;
                     return;

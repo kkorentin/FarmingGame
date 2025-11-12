@@ -43,10 +43,12 @@ public class UIController : MonoBehaviour
         {
             inventoryController.OpenClose();
         }
+#if UNITY_EDITOR
         if(Keyboard.current.bKey.wasPressedThisFrame)
         {
             shopController.OpenClose();
         }
+#endif
     }
 
     public void SwitchTool(int selected)
