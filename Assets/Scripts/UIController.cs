@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
@@ -30,6 +31,9 @@ public class UIController : MonoBehaviour
 
     public Image seedImage;
     public TMP_Text moneyText;
+
+    public GameObject pauseScreen;
+    public string menuScene;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,8 +53,12 @@ public class UIController : MonoBehaviour
             shopController.OpenClose();
         }
 #endif
+        if(Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            PauseUnpause();
+        }
     }
-
+        
     public void SwitchTool(int selected)
     {
        foreach(GameObject icon in toolbarActivatorIcons)
@@ -86,10 +94,50 @@ public class UIController : MonoBehaviour
     public void SwitchSeed(CropController.CropType crop)
     {
         seedImage.sprite = CropController.instance.GetCropInfo(crop).seedType;
+        AudioManager.instance.PlaySFXPitchAdjusted(5);
     }
 
     public void UpdateMoneyText(float currentMoney)
     {
         moneyText.text = "$" + currentMoney.ToString();
+    }
+
+    public void PauseUnpause()
+    {
+        if(pauseScreen.activeSelf == false)
+        { 
+            pauseScreen.SetActive(true);
+            
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            pauseScreen.SetActive(false);
+
+            Time.timeScale = 1f;
+        }
+        AudioManager.instance.PlaySFXPitchAdjusted(5);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(menuScene);
+        Time.timeScale = 1f;
+
+        Destroy(gameObject);
+        Destroy(PlayerController.instance.gameObject);
+        Destroy(GridInfo.instance.gameObject);
+        Destroy(TimeController.instance.gameObject);
+        Destroy(CropController.instance.gameObject);
+        Destroy(CurrencyController.instance.gameObject);
+        AudioManager.instance.PlaySFXPitchAdjusted(5);
+
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quit Game");
+        AudioManager.instance.PlaySFXPitchAdjusted(5);
     }
 }

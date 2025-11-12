@@ -26,6 +26,7 @@ public class ShopCropDisplay : MonoBehaviour
             CurrencyController.instance.AddMoney(info.cropAmount * info.cropPrice);
             CropController.instance.RemoveCrop(crop);
             UpdateDisplay();
+            AudioManager.instance.PlaySFXPitchAdjusted(5);
         }
     }
 }
