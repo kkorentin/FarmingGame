@@ -29,10 +29,11 @@ public class UIController : MonoBehaviour
     public ShopController shopController;
 
     public Image seedImage;
+    public TMP_Text moneyText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SwitchTool(0);
+       
     }
 
     // Update is called once per frame
@@ -83,5 +84,10 @@ public class UIController : MonoBehaviour
     public void SwitchSeed(CropController.CropType crop)
     {
         seedImage.sprite = CropController.instance.GetCropInfo(crop).seedType;
+    }
+
+    public void UpdateMoneyText(float currentMoney)
+    {
+        moneyText.text = "$" + currentMoney.ToString();
     }
 }
