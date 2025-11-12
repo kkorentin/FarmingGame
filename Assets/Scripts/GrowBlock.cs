@@ -81,6 +81,7 @@ public class GrowBlock : MonoBehaviour
         {
             currentStage = GrowStage.ploughed;
             SetSoilSprite();
+            AudioManager.instance.PlaySFXPitchAdjusted(4);
         }
     }
 
@@ -90,6 +91,7 @@ public class GrowBlock : MonoBehaviour
         {
             isWatered = true;
             SetSoilSprite();
+            AudioManager.instance.PlaySFXPitchAdjusted(7);
         }
         
     }
@@ -105,8 +107,8 @@ public class GrowBlock : MonoBehaviour
             growFailChance=CropController.instance.GetCropInfo(cropType).growthFailChance;
 
             CropController.instance.useSeed(cropToPlant);
-
             UpdateCropSprite();
+            AudioManager.instance.PlaySFXPitchAdjusted(3);
         }
     }
 
@@ -158,6 +160,7 @@ public class GrowBlock : MonoBehaviour
             SetSoilSprite();
             cropSr.sprite = null;
             CropController.instance.addCrop(cropType);
+            AudioManager.instance.PlaySFXPitchAdjusted(2);
         }
     }
 

@@ -15,6 +15,8 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene(levelToStart);
 
         AudioManager.instance.PlayNextBGM();
+
+        AudioManager.instance.PlaySFXPitchAdjusted(5);
     }
 
     public void QuitGame()
@@ -22,5 +24,7 @@ public class MainMenuController : MonoBehaviour
         Application.Quit();
 
         Debug.Log("Quit Game");
+
+        AudioManager.instance.PlaySFXPitchAdjusted(5);
     }
 }

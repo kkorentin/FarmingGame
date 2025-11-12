@@ -18,6 +18,8 @@ public class DayEndController : MonoBehaviour
         }
 
         AudioManager.instance.PauseMusic();
+
+        AudioManager.instance.PlaySFX(1);
     }
 
     // Update is called once per frame

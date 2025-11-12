@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource titleMusic;
     public AudioSource[] bgMusic;
 
+    public AudioSource[] sfx;
     private int currentTrack;
 
     private bool isPaused;
@@ -76,5 +77,18 @@ public class AudioManager : MonoBehaviour
         isPaused = false;
 
         bgMusic[currentTrack].UnPause();
+    }
+
+    public void PlaySFX(int sfxToPlay)
+    {
+        sfx[sfxToPlay].Stop();
+        sfx[sfxToPlay].Play();
+    }
+
+    public void PlaySFXPitchAdjusted(int sfxToPlay)
+    {
+        sfx[sfxToPlay].pitch = Random.Range(.8f, 1.2f);
+
+        PlaySFX(sfxToPlay);
     }
 }
